@@ -13,7 +13,10 @@ func main() {
 
 	c := &a
 
-	fmt.Printf("%d %d %d\n", a, b, *c)
+	fmt.Printf("%T\n", c)
+	fmt.Println(a, b)
+	swap(&a, &b)
+	fmt.Println(a, b)
 }
 
 // package main
