@@ -2,15 +2,33 @@ package main
 
 import "fmt"
 
-func double(n *int) {
-	*n = *n * 2
+func swap(n1 *int, n2 *int) {
+	temp := *n1
+	*n1 = *n2
+	*n2 = temp
+}
+func main() {
+	a := 10
+	b := 20
+
+	c := &a
+
+	fmt.Printf("%d %d %d\n", a, b, *c)
 }
 
-func main() {
-	var a int = 5
-	double(&a) // pass by pointer
-	fmt.Printf("%d\n", a)
-}
+// package main
+
+// import "fmt"
+
+// func double(n *int) {
+// 	*n = *n * 2
+// }
+
+// func main() {
+// 	var a int = 5
+// 	double(&a) // pass by pointer
+// 	fmt.Printf("%d\n", a)
+// }
 
 // package main
 
