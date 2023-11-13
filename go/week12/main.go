@@ -24,6 +24,13 @@ func main() {
 
 	test := [3]string{"인하", "go", "학생"}
 	testS := test[0:2]
+	testS2 := test[1:]
+
+	// testS[1] = "python"
+	// testS2[0] = "python"
+	// go는 역순 인덱싱 안 됨. -1, -2...
+
 	fmt.Println(test, len(test))
 	fmt.Println(testS, len(testS))
+	fmt.Println(testS2, len(testS2))
 }
