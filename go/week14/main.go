@@ -1,40 +1,32 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
-// GetStrings reads a string from each line of a file.
-func GetStrings(fileName string) ([]string, error) {
-	var lines []string
-	file, err := os.Open(fileName)
-	if err != nil {
-		return nil, err
+func status(name string) {
+	balls := map[string]int{"성기훈": 20, "오일남": 0}
+	// ball := balls[name]
+	ball, exists := balls[name]
+	fmt.Println(ball, exists)
+	if !exists {
+		fmt.Println(name, "님은 게임에 참여하실 수 없습니다.")
+	} else if ball < 1 {
+		fmt.Println(name, "님은 ", balls[name], "개로 탈락..탕탕탕")
+	} else {
+		fmt.Println(name, "님은 게임에서 승리하셨습니다.")
 	}
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		lines = append(lines, line)
-	}
-	err = file.Close()
-	if err != nil {
-		return nil, err
-	}
-	if scanner.Err() != nil {
-		return nil, scanner.Err()
-	}
-	return lines, nil
 }
 
 func main() {
-	balls := make(map[string]int)
-	// var balls map[string]int
-	fmt.Printf("%#v\n", balls)
-	balls["성기훈"] = 20
-	fmt.Println(balls["성기훈"])
-	fmt.Println(balls["오일남"])
+	status("오일남")
+	status("강철")
+	status("성기훈")
+
+	// balls := make(map[string]int)
+	// // var balls map[string]int
+	// fmt.Printf("%#v\n", balls)
+	// balls["성기훈"] = 20
+	// fmt.Println(balls["성기훈"])
+	// fmt.Println(balls["오일남"])
 
 	// games := map[int]string{
 	// 	456: "성기훈",
@@ -76,3 +68,25 @@ func main() {
 	// 	fmt.Printf("Votes for %s: %d\n", name, count)
 	// }
 }
+
+// GetStrings reads a string from each line of a file.
+// func GetStrings(fileName string) ([]string, error) {
+// 	var lines []string
+// 	file, err := os.Open(fileName)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	scanner := bufio.NewScanner(file)
+// 	for scanner.Scan() {
+// 		line := scanner.Text()
+// 		lines = append(lines, line)
+// 	}
+// 	err = file.Close()
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	if scanner.Err() != nil {
+// 		return nil, scanner.Err()
+// 	}
+// 	return lines, nil
+// }
